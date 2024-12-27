@@ -1,0 +1,51 @@
+:root {
+  --borderRadius: 12px;
+
+  --background: #f7fafc;
+  --foreground: #0d141c;
+  --lightGray: #e5e8eb;
+  --darkBlue: #1466b8;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 1280px;
+  margin: auto;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-manrope), sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  color: var(--background);
+  cursor: pointer;
+  background-color: var(--darkBlue);
+  border-radius: var(--borderRadius);
+  font-family: var(--font-manrope), sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0.6rem 1rem;
+  transition: all 0.3s ease;
+}
+button:hover {
+  box-shadow: 0 0 10px var(--darkBlue);
+  transform: translateY(-1px);
+}
+button:active {
+  transform: translateY(1px);
+}
