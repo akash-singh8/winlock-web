@@ -32,7 +32,7 @@
   font-size: 14px;
   font-weight: 500;
 
-  p {
+  a {
     cursor: pointer;
     position: relative;
     padding: 2px 4px;
@@ -61,11 +61,11 @@
     }
   }
 
-  p.active {
+  a.active {
     color: var(--darkBlue);
   }
 
-  p.active::after {
+  a.active::after {
     transform: scaleX(1);
   }
 }
