@@ -5,7 +5,7 @@ import check from "@/assets/pricing/check.svg";
 
 const Pricing = () => {
   return (
-    <div className={styles.pricing}>
+    <section className={styles.pricing}>
       <h2>Choose the Plan That&apos;s Right for You</h2>
 
       <div className={styles.plans}>
@@ -47,7 +47,7 @@ const Pricing = () => {
           ]}
         />
       </div>
-    </div>
+    </section>
   );
 };
 

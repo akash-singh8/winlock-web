@@ -50,3 +50,12 @@ button:hover {
 button:active {
   transform: translateY(1px);
 }
+
+.pageContainer {
+  padding: 20px 160px;
+}
+
+section,
+footer {
+  padding: 40px 0;
+}

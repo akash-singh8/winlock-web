@@ -3,7 +3,7 @@ import styles from "@/styles/navbar.module.scss";
 
 const Navbar = () => {
   return (
-    <div className={styles.navbar}>
+    <nav className={styles.navbar}>
       <div className={styles.brand}>
         <Image src="/logo.png" height={24} width={24} alt="logo" />
         <h1>Winlock</h1>
@@ -15,7 +15,7 @@ const Navbar = () => {
         <p>FAQ</p>
         <button>Download</button>
       </div>
-    </div>
+    </nav>
   );
 };
 

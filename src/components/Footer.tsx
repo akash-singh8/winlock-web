@@ -8,7 +8,7 @@ import linkedin from "@/assets/socials/linkedin.svg";
 
 const Footer = () => {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <p>&copy; 2025 Winlock. All rights reserved</p>
 
       <div className={styles.socials}>
@@ -22,7 +22,7 @@ const Footer = () => {
           <Image src={linkedin} alt="Linkedin" />
         </a>
       </div>
-    </div>
+    </footer>
   );
 };
 

@@ -8,7 +8,7 @@ import uparrow from "@/assets/faq/uparrow.svg";
 
 const FAQs = ({ additional }: { additional: boolean }) => {
   return (
-    <div className={styles.faqs}>
+    <section className={styles.faqs}>
       <h2>FAQs</h2>
 
       <div className={styles.questions}>
@@ -57,7 +57,7 @@ const FAQs = ({ additional }: { additional: boolean }) => {
           ans="Yes, your data is secured using advanced encryption algorithms, ensuring that only you can access your locked folders. Your privacy and security are our top priorities."
         />
       </div>
-    </div>
+    </section>
   );
 };
 

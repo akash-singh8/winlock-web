@@ -14,8 +14,8 @@ import secureFile from "@/assets/home/secureFile.png";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <div className={styles.header}>
+    <>
+      <section className={styles.header}>
         <Image src={hacking} alt="Girl Hacking" />
 
         <div className={styles.about}>
@@ -32,9 +32,9 @@ export default function Home() {
             <button>Learn more</button>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className={styles.featuresBox}>
+      <section className={styles.featuresBox}>
         <h2>Why do you need Winlock?</h2>
 
         <div className={styles.features}>
@@ -68,13 +68,13 @@ export default function Home() {
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
       <Pricing />
 
       <FAQs additional={false} />
 
-      <div className={styles.readyToDownload}>
+      <section className={styles.readyToDownload}>
         <Image src={secureFile} alt="Secured File" />
 
         <div className={styles.footerDownload}>
@@ -83,9 +83,9 @@ export default function Home() {
             <button>Download now</button>
           </div>
         </div>
-      </div>
+      </section>
 
       <Subscribe />
-    </div>
+    </>
   );
 }

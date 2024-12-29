@@ -24,8 +24,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={manrope.variable}>
         <Navbar />
-        {children}
-        <Footer />
+        <div className="pageContainer">
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

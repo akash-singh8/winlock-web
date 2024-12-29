@@ -15,7 +15,7 @@ const Subscribe = () => {
   };
 
   return (
-    <div className={styles.subscribe}>
+    <section className={styles.subscribe}>
       <h2>Stay ahead with latest Winlock updates</h2>
 
       <form onSubmit={handleSubscribe}>
@@ -28,7 +28,7 @@ const Subscribe = () => {
         />
         <button type="submit">Subscribe now</button>
       </form>
-    </div>
+    </section>
   );
 };
 
