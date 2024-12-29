@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import styles from "@/styles/page.module.scss";
+import styles from "./page.module.scss";
 import Pricing from "@/components/Pricing";
 import FAQs from "@/components/FAQs";
 import Subscribe from "@/components/Subscribe";
