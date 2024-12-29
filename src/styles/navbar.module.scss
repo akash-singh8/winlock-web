@@ -6,6 +6,11 @@
   align-items: center;
   justify-content: space-between;
   user-select: none;
+
+  position: sticky;
+  top: 0px;
+  backdrop-filter: blur(4px);
+  z-index: 100;
 }
 
 .brand {
