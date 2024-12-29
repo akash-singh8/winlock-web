@@ -1,3 +1,125 @@
 .page {
   padding: 20px 160px;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 40px 0;
+
+  img {
+    max-width: calc(50% - 1rem);
+    height: auto;
+    object-fit: contain;
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: calc(50% - 1rem);
+
+    h1 {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 60px;
+    }
+
+    p {
+      margin-top: 8px;
+      padding-right: 20px;
+      line-height: 23px;
+    }
+  }
+}
+
+.action {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+
+  button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  button:last-child {
+    background-color: var(--lightGray);
+    color: var(--foreground);
+
+    &:hover {
+      box-shadow: 0 0 10px var(--lightGray);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+.featuresBox {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+  gap: 2rem;
+
+  h2 {
+    font-size: 36px;
+    font-weight: 800;
+  }
+}
+
+.features {
+  display: flex;
+  gap: 1rem;
+
+  div {
+    flex: 1;
+
+    img {
+      height: 148px;
+      object-fit: cover;
+      border-radius: var(--borderRadius);
+      width: 100%;
+    }
+  }
+
+  .featureTitle {
+    margin-top: 0.5rem;
+    line-height: 24px;
+    font-weight: 500;
+  }
+
+  .featureDesc {
+    font-size: 14px;
+    color: var(--lightBlue);
+    line-height: 21px;
+  }
+}
+
+.readyToDownload {
+  padding: 40px 0;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.footerDownload {
+  position: absolute;
+  bottom: 80px;
+  left: 40px;
+
+  p {
+    color: var(--background);
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+}
