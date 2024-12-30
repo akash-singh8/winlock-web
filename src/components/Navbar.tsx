@@ -33,7 +33,14 @@ const Navbar = () => {
         >
           Support
         </Link>
-        <button>Download</button>
+        <Link
+          href="/download"
+          className={`${styles.downloadBtn} ${
+            currentRoute == "download" ? styles.downloadActive : ""
+          }`}
+        >
+          <button>Download</button>
+        </Link>
       </div>
     </nav>
   );

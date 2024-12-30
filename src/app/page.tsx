@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "./page.module.scss";
 import Pricing from "@/components/Pricing";
@@ -29,7 +30,9 @@ export default function Home() {
 
           <div className={styles.action}>
             <button>Download now</button>
-            <button>Learn more</button>
+            <Link href="/download">
+              <button>Learn more</button>
+            </Link>
           </div>
         </div>
       </section>

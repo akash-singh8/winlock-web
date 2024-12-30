@@ -69,3 +69,17 @@
     transform: scaleX(1);
   }
 }
+
+.downloadBtn {
+  &::after {
+    display: none;
+  }
+
+  button:hover {
+    transform: none;
+  }
+}
+
+.downloadActive button {
+  box-shadow: 0 0 10px var(--darkBlue);
+}

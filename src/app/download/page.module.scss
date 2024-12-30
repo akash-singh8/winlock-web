@@ -1,0 +1,75 @@
+.download {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  > p {
+    color: var(--lightBlue);
+  }
+}
+
+.header {
+  h2 {
+    font-size: 34px;
+    font-weight: 800;
+    margin-bottom: 6px;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--lightBlue);
+    margin-left: 1px;
+  }
+}
+
+.mainDownload {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: fit-content;
+  transition: all 0.3s ease-out;
+
+  font-size: 16px;
+  padding: 0.75rem 1.5rem;
+
+  &:hover {
+    transform: none !important;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.requirements {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  div {
+    p:first-child {
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    p:last-child {
+      color: var(--lightBlue);
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.guide {
+  padding-top: 20px;
+
+  ol {
+    padding-left: 1.1rem;
+    margin-top: 1rem;
+  }
+
+  ol li {
+    padding-left: 10px;
+    margin-bottom: 12px;
+  }
+}
