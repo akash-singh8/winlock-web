@@ -9,7 +9,7 @@ import uparrow from "@/assets/faq/uparrow.svg";
 const FAQs = ({ additional }: { additional: boolean }) => {
   return (
     <section className={styles.faqs}>
-      <h2>FAQs</h2>
+      <h2>{additional ? "Browse help topics" : "FAQs"} </h2>
 
       <div className={styles.questions}>
         <Card

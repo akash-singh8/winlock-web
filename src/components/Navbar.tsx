@@ -12,10 +12,10 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.brand}>
+      <Link href="/" className={styles.brand}>
         <Image src="/logo.png" height={24} width={24} alt="logo" />
         <h1>Winlock</h1>
-      </div>
+      </Link>
 
       <div className={styles.menu}>
         <Link href="/" className={currentRoute ? "" : styles.active}>
@@ -28,10 +28,10 @@ const Navbar = () => {
           Pricing
         </Link>
         <Link
-          href="/faqs"
-          className={currentRoute == "faqs" ? styles.active : ""}
+          href="/support"
+          className={currentRoute == "support" ? styles.active : ""}
         >
-          FAQ
+          Support
         </Link>
         <button>Download</button>
       </div>
