@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <Link href="/" className={styles.brand}>
-        <Image src="/logo.png" height={24} width={24} alt="logo" />
+        <Image src="/logo.svg" height={24} width={24} alt="logo" />
         <h1>Winlock</h1>
       </Link>
 
