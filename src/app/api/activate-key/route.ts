@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
+import { Collection } from "mongodb";
+import getDb from "@/libs/mongodb";
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,6 +15,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (!["premium", "professional"].includes(plan)) {
+      return NextResponse.json(
+        { message: "Invalid plan specified!" },
+        { status: 400 }
+      );
+    }
+
     const secretKey = process.env.JWT_SECRET_KEY;
     if (!secretKey) {
       return NextResponse.json(
@@ -21,21 +30,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (plan === "premium") {
-      const activationKey = jwt.sign({ plan }, secretKey, { expiresIn: "1y" });
-      return NextResponse.json({ activationKey });
-    }
+    const saltRounds = 10;
+    const activationKey =
+      plan === "premium"
+        ? jwt.sign({ plan }, secretKey, { expiresIn: "1y" })
+        : await bcrypt.hash(secretKey, saltRounds);
 
-    if (plan === "professional") {
-      const saltRounds = 10;
-      const activationKey = await bcrypt.hash(secretKey, saltRounds);
-      return NextResponse.json({ activationKey });
-    }
+    const db = await getDb();
+    const collection: Collection<{ _id: string }> = db.collection("Devices");
 
-    return NextResponse.json(
-      { error: "Invalid plan specified!" },
-      { status: 400 }
-    );
+    await collection.insertOne({ _id: activationKey });
+
+    return NextResponse.json({ activationKey });
   } catch (error) {
     return NextResponse.json({ error }, { status: 500 });
   }
