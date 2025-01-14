@@ -59,3 +59,17 @@ section,
 footer {
   padding: 40px 0;
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--lightGray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--lightBlue);
+  border-radius: 3px;
+}

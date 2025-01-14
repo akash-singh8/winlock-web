@@ -1,12 +1,51 @@
+"use client";
 import Image from "next/image";
+import { useState, useRef } from "react";
 
 import styles from "@/styles/pricing.module.scss";
 import check from "@/assets/pricing/check.svg";
+import Purchase from "./Purchase";
 
 const Pricing = () => {
+  const popupRef = useRef(null);
+  const [isPremium, setIsPremium] = useState(true);
+  const [isPurchaseOpen, setIsPurchaseOpen] = useState(false);
+
+  const handlePurchasePopup = (plan?: string) => {
+    if (!isPurchaseOpen) {
+      setIsPremium(plan === "Premium");
+      setIsPurchaseOpen(true);
+
+      setTimeout(() => {
+        const popupContainer: HTMLDivElement = popupRef.current!;
+        const popup = popupContainer.querySelector("div")!;
+        popupContainer.style.opacity = "1";
+        popup.style.marginBottom = "0px";
+      }, 100);
+    } else {
+      const popupContainer: HTMLDivElement = popupRef.current!;
+      const popup = popupContainer.querySelector("div")!;
+      popupContainer.style.opacity = "0";
+      popup.style.marginBottom = "-100%";
+
+      setTimeout(() => {
+        setIsPurchaseOpen(false);
+      }, 300);
+    }
+  };
+
   return (
     <section className={styles.pricing}>
       <h2>Choose the Plan That&apos;s Right for You</h2>
+
+      {isPurchaseOpen && (
+        <Purchase
+          plan={isPremium ? "Premium" : "Professional"}
+          price={isPremium ? 24 : 98}
+          onClose={handlePurchasePopup}
+          popupRef={popupRef}
+        />
+      )}
 
       <div className={styles.plans}>
         <Card
@@ -32,6 +71,7 @@ const Pricing = () => {
             "Unlimited Bandwidth",
             "Priority Email Support",
           ]}
+          onClick={handlePurchasePopup}
         />
         <Card
           title="Professional"
@@ -45,6 +85,7 @@ const Pricing = () => {
             "Unlimited Bandwidth",
             "24/7 Priority Support",
           ]}
+          onClick={handlePurchasePopup}
         />
       </div>
     </section>
@@ -57,9 +98,26 @@ type CartParams = {
   type: string;
   action: string;
   features: string[];
+  onClick?: (plan: string) => void;
 };
 
-const Card = ({ title, price, type, action, features }: CartParams) => {
+const Card = ({
+  title,
+  price,
+  type,
+  action,
+  features,
+  onClick,
+}: CartParams) => {
+  const handleAction = () => {
+    if (title === "Free") {
+      console.log("Downloading winlock...");
+      return;
+    }
+
+    if (onClick) onClick(title);
+  };
+
   return (
     <div className={styles.card}>
       <div>
@@ -69,7 +127,9 @@ const Card = ({ title, price, type, action, features }: CartParams) => {
         </p>
       </div>
 
-      <button className={styles.action}>{action}</button>
+      <button className={styles.action} onClick={handleAction}>
+        {action}
+      </button>
 
       <div className={styles.features}>
         {features.map((feature, i) => (

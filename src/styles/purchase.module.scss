@@ -1,0 +1,130 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  z-index: 20;
+  transition: all 0.3s ease-out;
+}
+
+.purchase {
+  border: 1px solid #e8edf2;
+  background-color: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 560px;
+  padding: 1.5rem 2rem 1.5rem;
+  position: relative;
+  margin-bottom: -100%;
+  transition: all 0.3s ease-out;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-height: 460px;
+  overflow: auto;
+  transition: all 0.25s ease-out;
+
+  padding-right: 0.5rem;
+  margin-right: -0.5rem;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+  }
+
+  img {
+    position: absolute;
+    right: 1rem;
+    cursor: pointer;
+  }
+}
+
+.details {
+  border-radius: var(--borderRadius);
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  width: 100%;
+
+  > p {
+    font-size: 26px;
+    font-weight: bold;
+  }
+}
+
+.items {
+  display: flex;
+  gap: 1.25rem;
+
+  img {
+    height: 44px;
+    width: auto;
+  }
+
+  h2 {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    margin-bottom: 2px;
+  }
+
+  p {
+    color: var(--lightBlue);
+    font-weight: 500;
+  }
+}
+
+.emailInput {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.emailInput p {
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.emailInput input {
+  width: 70%;
+  padding: 0.75rem 1.25rem;
+  font-size: 15px;
+  font-family: var(--font-manrope), sans-serif;
+  background-color: transparent;
+  font-weight: 500;
+  text-align: center;
+  border: 2px solid var(--lightGray);
+  border-radius: var(--borderRadius);
+  outline: none;
+}
+
+.emailInput input:focus {
+  border-color: var(--darkBlue);
+}
+
+.paymentButtons {
+  padding: 0 2rem;
+}
