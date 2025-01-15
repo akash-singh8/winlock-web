@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { RefObject } from "react";
 import {
-  PayPalScriptProvider,
   PayPalButtons,
   PayPalButtonsComponentProps,
 } from "@paypal/react-paypal-js";
@@ -59,13 +58,7 @@ const Purchase = ({ plan, price, onClose, popupRef }: PurchaseParams) => {
           </div>
 
           <div className={styles.paymentButtons}>
-            <PayPalScriptProvider
-              options={{
-                clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID!,
-              }}
-            >
-              <PayPalButtons style={buttonStyles} />
-            </PayPalScriptProvider>
+            <PayPalButtons style={buttonStyles} />
           </div>
         </div>
       </div>

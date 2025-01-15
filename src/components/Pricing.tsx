@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState, useRef } from "react";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 import styles from "@/styles/pricing.module.scss";
 import check from "@/assets/pricing/check.svg";
@@ -38,14 +39,20 @@ const Pricing = () => {
     <section className={styles.pricing}>
       <h2>Choose the Plan That&apos;s Right for You</h2>
 
-      {isPurchaseOpen && (
-        <Purchase
-          plan={isPremium ? "Premium" : "Professional"}
-          price={isPremium ? 24 : 98}
-          onClose={handlePurchasePopup}
-          popupRef={popupRef}
-        />
-      )}
+      <PayPalScriptProvider
+        options={{
+          clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID!,
+        }}
+      >
+        {isPurchaseOpen && (
+          <Purchase
+            plan={isPremium ? "Premium" : "Professional"}
+            price={isPremium ? 24 : 98}
+            onClose={handlePurchasePopup}
+            popupRef={popupRef}
+          />
+        )}
+      </PayPalScriptProvider>
 
       <div className={styles.plans}>
         <Card
