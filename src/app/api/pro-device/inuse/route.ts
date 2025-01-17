@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const deviceUsed = Object.keys(devices).length - 1; // subtract 1 for the activation-key or _id
+    const deviceUsed = Object.keys(devices).length - 2; // subtract 2 for the _id(activation-key) and createdAt field
 
     return NextResponse.json({ deviceUsed });
   } catch (error) {
