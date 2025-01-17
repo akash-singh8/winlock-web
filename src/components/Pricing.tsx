@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState, useRef } from "react";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { ToastContainer } from "react-toastify";
 
 import styles from "@/styles/pricing.module.scss";
 import check from "@/assets/pricing/check.svg";
@@ -53,6 +54,19 @@ const Pricing = () => {
           />
         )}
       </PayPalScriptProvider>
+
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
 
       <div className={styles.plans}>
         <Card

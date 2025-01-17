@@ -128,3 +128,33 @@
 .paymentButtons {
   padding: 0 2rem;
 }
+
+.activationKey {
+  margin: 0.5rem 0;
+
+  > p {
+    font-weight: 600;
+  }
+
+  div {
+    background-color: #eee;
+    padding: 20px;
+    border-radius: var(--borderRadius);
+    margin: 1rem 0 1.5rem;
+
+    p {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      width: 100%;
+    }
+  }
+
+  button {
+    width: 100%;
+    font-size: 1rem;
+  }
+}

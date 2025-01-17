@@ -60,6 +60,10 @@ footer {
   padding: 40px 0;
 }
 
+.Toastify {
+  padding: 0 !important;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
   border-radius: 3px;
