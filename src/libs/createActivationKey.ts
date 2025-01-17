@@ -8,6 +8,7 @@ const createActivationKey = async (plan: string) => {
     if (!plan) {
       return { status: 400, message: "Plan is required!" };
     }
+    plan = plan.toLowerCase();
 
     if (!["premium", "professional"].includes(plan)) {
       return { status: 400, message: "Invalid plan specified!" };
