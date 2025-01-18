@@ -22,15 +22,29 @@ export async function POST(request: NextRequest) {
     const db = await getDb();
     const collection = db.collection("Devices");
 
-    const activationKeyExists = await collection.countDocuments({
-      _id: activationKey,
-    });
+    const data = await collection.findOne({ _id: activationKey });
 
-    if (activationKeyExists === 0) {
+    if (!data) {
       return NextResponse.json(
         { message: "Invalid or Expired Activation Key!" },
         { status: 403 }
       );
+    }
+    const plan = data.plan;
+
+    if (action === "add" && plan !== "professional") {
+      // subtract 3 for the _id(activation-key), createdAt and plan field
+      const deviceUsed = Object.keys(data).length - 3;
+
+      if (deviceUsed >= 3) {
+        return NextResponse.json(
+          {
+            message:
+              "Device limit exceeded. Upgrade to Professional or purchase another activation key.",
+          },
+          { status: 429 }
+        );
+      }
     }
 
     const updatedResult = await collection.updateOne(

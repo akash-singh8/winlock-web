@@ -33,11 +33,13 @@ const createActivationKey = async (plan: string) => {
     const db = await getDb();
     const collection: Collection<{
       _id: string;
+      plan: string;
       createdAt: Date;
     }> = db.collection("Devices");
 
     await collection.insertOne({
       _id: activationKey,
+      plan,
       createdAt: new Date(),
     });
 
