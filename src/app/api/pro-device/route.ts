@@ -56,9 +56,9 @@ export async function POST(request: NextRequest) {
         : { $unset: { [deviceID]: "" } }
     );
 
-    if (updatedResult.matchedCount === 0) {
+    if (updatedResult.modifiedCount === 0) {
       return NextResponse.json(
-        { message: "DeviceID not found!" },
+        { message: "Invalid DeviceID or DeviceID not found!" },
         { status: 404 }
       );
     }
