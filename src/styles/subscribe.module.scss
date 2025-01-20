@@ -6,12 +6,16 @@
   width: fit-content;
   margin: auto;
 
+  h2 {
+    font-size: 24px;
+  }
+
   form {
     display: flex;
     border: 1px solid #d1dbe8;
     border-radius: var(--borderRadius);
     align-items: center;
-    padding: 0.5rem;
+    padding: 0.25rem;
     gap: 0.5rem;
     width: 100%;
   }
@@ -31,5 +35,25 @@
 
   button:active {
     box-shadow: none;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 680px) {
+  .subscribe h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 580px) {
+  .subscribe h2 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .subscribe h2 {
+    text-align: center;
+    font-size: 18px;
   }
 }
