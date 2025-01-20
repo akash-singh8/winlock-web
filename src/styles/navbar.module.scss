@@ -5,12 +5,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   user-select: none;
 
   position: sticky;
   top: 0px;
   backdrop-filter: blur(4px);
   z-index: 10;
+  transition: all 0.3s ease-out;
 }
 
 .brand {
@@ -82,4 +84,51 @@
 
 .downloadActive button {
   box-shadow: 0 0 10px var(--darkBlue);
+}
+
+.mobileNav {
+  display: none;
+}
+
+@media (max-width: 680px) {
+  .navbar {
+    top: 1rem;
+    margin: 1rem;
+    border: 2px solid var(--lightGray);
+    border-radius: 18px;
+    padding: 1rem 1.5rem;
+    height: 63px;
+    background-color: rgba(247, 250, 252, 0.7);
+    overflow: hidden;
+  }
+
+  .mobileNav {
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .menu {
+    flex-basis: 100%;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 0;
+
+    a {
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: 700;
+      width: 100%;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    a::after {
+      display: none;
+    }
+
+    a.active {
+      font-weight: 800;
+    }
+  }
 }
