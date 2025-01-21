@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   padding: 40px 0;
-  gap: 2rem;
 
   h2 {
     font-size: 36px;
     font-weight: 800;
+    margin-bottom: 2rem;
   }
 }
 
@@ -64,5 +64,58 @@
     align-items: center;
     gap: 12px;
     font-size: 13px;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1080px) {
+  .pricing h2 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 980px) {
+  .pricing h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 880px) {
+  .pricing h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 680px) {
+  .pricing h2 {
+    font-size: 28px;
+  }
+
+  .plans {
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0 1.5rem;
+  }
+
+  .card {
+    width: 100%;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing h2 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 440px) {
+  .plans {
+    padding: 0;
+  }
+
+  .card {
+    align-items: flex-start;
   }
 }

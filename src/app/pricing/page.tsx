@@ -16,8 +16,8 @@ const page = () => {
             Lock your folders with Winlock to protect your sensitive information
             from unauthorized access. We provide military-grade 256-bit AES
             on-the-fly encryption, so you can rest easy knowing that your data
-            is safe and secure. <br />
-            Get started today with our flexible pricing options.
+            is safe and secure. Get started today with our flexible pricing
+            options.
           </p>
         </div>
       </div>

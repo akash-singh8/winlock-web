@@ -1,9 +1,12 @@
 .poster {
   padding: 2rem 0 0.5rem;
   position: relative;
+  max-width: 960px;
+  margin: auto;
 
   img {
     width: 100%;
+    object-fit: cover;
     height: auto;
   }
 
@@ -33,5 +36,61 @@
   h2 {
     font-weight: bold !important;
     font-size: 28px !important;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 880px) {
+  .poster {
+    h2 {
+      font-size: 40px;
+      line-height: 54px;
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .poster {
+    div {
+      bottom: 0rem;
+    }
+
+    h2 {
+      font-size: 32px;
+      line-height: 42px;
+    }
+
+    p {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  .pricing h2 {
+    font-size: 26px !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .poster {
+    div {
+      padding: 30px 20px;
+    }
+
+    img {
+      height: 340px;
+      border-radius: var(--borderRadius);
+      object-fit: cover;
+    }
+
+    h2 {
+      font-size: 30px;
+      line-height: 40px;
+    }
+  }
+
+  .pricing h2 {
+    font-size: 24px !important;
   }
 }
