@@ -7,11 +7,13 @@
   left: 0;
   bottom: 0;
   right: 0;
+  padding: 20px;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(3px);
   opacity: 0;
   z-index: 20;
   transition: all 0.3s ease-out;
+  overflow: auto;
 }
 
 .purchase {
@@ -22,7 +24,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  width: 560px;
+  width: 540px;
   padding: 1.5rem 2rem 1.5rem;
   position: relative;
   margin-bottom: -100%;
@@ -49,6 +51,7 @@
   h2 {
     font-size: 24px !important;
     font-weight: 700 !important;
+    margin-bottom: 0;
   }
 
   img {
@@ -75,6 +78,7 @@
 
 .items {
   display: flex;
+  align-items: center;
   gap: 1.25rem;
 
   img {
@@ -156,5 +160,93 @@
   button {
     width: 100%;
     font-size: 1rem;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 780px) {
+  .purchase {
+    width: 460px;
+    padding: 1.5rem;
+  }
+
+  .title h2 {
+    font-size: 22px !important;
+  }
+}
+
+@media (max-width: 580px) {
+  .purchase {
+    width: 400px;
+    padding: 1.5rem 1rem;
+  }
+
+  .title {
+    h2 {
+      font-size: 20px !important;
+    }
+
+    img {
+      width: 24px;
+      right: 0.75rem;
+    }
+  }
+
+  .details {
+    padding: 1.25rem;
+
+    > p {
+      font-size: 22px;
+    }
+  }
+
+  .items {
+    gap: 1rem;
+
+    img {
+      height: 38px;
+    }
+
+    h2 {
+      font-size: 16px !important;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+}
+
+@media (max-width: 440px) {
+  .title {
+    h2 {
+      font-size: 18px !important;
+      text-align: center;
+      max-width: 250px;
+    }
+
+    img {
+      width: 22px;
+      top: 1.5rem;
+    }
+  }
+
+  .details > p {
+    font-size: 20px;
+  }
+
+  .emailInput {
+    p {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    input {
+      width: 90%;
+    }
+  }
+
+  .paymentButtons {
+    padding: 0 1.5rem;
   }
 }
