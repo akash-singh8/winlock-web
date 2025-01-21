@@ -69,9 +69,9 @@
 
 .features {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem 1rem;
 
-  div {
+  > div {
     flex: 1;
 
     img {
@@ -114,5 +114,179 @@
     font-size: 36px;
     font-weight: 800;
     margin-bottom: 1rem;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1080px) {
+  .header {
+    min-height: 390px;
+
+    .about {
+      h1 {
+        font-size: 44px;
+        line-height: 54px;
+      }
+    }
+  }
+
+  .featuresBox h2 {
+    font-size: 34px;
+  }
+
+  .footerDownload p {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 980px) {
+  .header {
+    gap: 1.5rem;
+
+    .about {
+      h1 {
+        font-size: 36px;
+        letter-spacing: 0px;
+        line-height: 44px;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  .action button {
+    font-size: 14px;
+    padding: 0.6rem 1rem;
+  }
+
+  .featuresBox h2 {
+    font-size: 32px;
+  }
+
+  .footerDownload p {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 880px) {
+  .header {
+    min-height: fit-content;
+    flex-direction: column;
+
+    img {
+      max-width: 100%;
+      height: 200px;
+      background-color: #f1e0d6;
+      padding: 10px 0;
+      border-radius: var(--borderRadius);
+    }
+
+    .about {
+      flex-direction: column;
+      max-width: 900px;
+
+      p {
+        font-size: 16px;
+        margin: 1rem 0 2rem;
+      }
+    }
+  }
+
+  .featuresBox h2 {
+    font-size: 30px;
+  }
+
+  .footerDownload p {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 780px) {
+  .header .about h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 680px) {
+  .featuresBox h2 {
+    font-size: 28px;
+  }
+
+  .readyToDownload {
+    img {
+      height: 240px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: var(--borderRadius);
+    }
+  }
+
+  .footerDownload {
+    bottom: 60px;
+    left: 28px;
+
+    p {
+      font-size: 28px;
+    }
+  }
+
+  .features {
+    flex-direction: column;
+    gap: 2.5rem;
+
+    > div {
+      display: flex;
+      gap: 1rem;
+
+      img {
+        flex: 2;
+        height: 128px;
+      }
+
+      div {
+        margin: auto;
+        flex: 3;
+      }
+    }
+
+    > div:nth-child(even) {
+      flex-direction: row-reverse;
+
+      .featureTitle,
+      .featureDesc {
+        text-align: right;
+      }
+    }
+
+    .featureTitle {
+      font-size: 18px;
+      margin-top: 0rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .featureDesc {
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .footerDownload {
+    bottom: 70px;
+
+    p {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .featuresBox h2 {
+    font-size: 26px;
   }
 }

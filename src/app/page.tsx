@@ -43,32 +43,41 @@ export default function Home() {
         <div className={styles.features}>
           <div>
             <Image src={feature1} alt="feature" />
-            <p className={styles.featureTitle}>Easy to Use</p>
-            <p className={styles.featureDesc}>
-              Just a single click to lock your folders — no file moving needed.
-            </p>
+            <div>
+              <p className={styles.featureTitle}>Easy to Use</p>
+              <p className={styles.featureDesc}>
+                Just a single click to lock your folders — no file moving
+                needed.
+              </p>
+            </div>
           </div>
           <div>
             <Image src={feature2} alt="feature" />
-            <p className={styles.featureTitle}>High Security</p>
-            <p className={styles.featureDesc}>
-              Use the latest encryption technology to protect your files
-            </p>
+            <div>
+              <p className={styles.featureTitle}>High Security</p>
+              <p className={styles.featureDesc}>
+                Use the latest encryption technology to protect your files
+              </p>
+            </div>
           </div>
           <div>
             <Image src={feature3} alt="feature" />
-            <p className={styles.featureTitle}>Fast Encryption</p>
-            <p className={styles.featureDesc}>
-              It only takes a few seconds to encrypt your files
-            </p>
+            <div>
+              <p className={styles.featureTitle}>Fast Encryption</p>
+              <p className={styles.featureDesc}>
+                It only takes a few seconds to encrypt your files
+              </p>
+            </div>
           </div>
           <div>
             <Image src={feature4} alt="feature" />
-            <p className={styles.featureTitle}>Support Any Type of Files</p>
-            <p className={styles.featureDesc}>
-              No matter what type of file you want to encrypt, it can be easily
-              done
-            </p>
+            <div>
+              <p className={styles.featureTitle}>Support Any Type of Files</p>
+              <p className={styles.featureDesc}>
+                No matter what type of file you want to encrypt, it can be
+                easily done
+              </p>
+            </div>
           </div>
         </div>
       </section>

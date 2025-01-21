@@ -43,10 +43,12 @@ button {
   padding: 0.6rem 1rem;
   transition: all 0.3s ease;
 }
+
 button:hover {
   box-shadow: 0 0 10px var(--darkBlue);
   transform: translateY(-1px);
 }
+
 button:active {
   transform: translateY(1px);
 }
@@ -76,4 +78,60 @@ footer {
 ::-webkit-scrollbar-thumb {
   background: var(--lightBlue);
   border-radius: 3px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1280px) {
+  .pageContainer {
+    padding: 20px 0;
+  }
+
+  section,
+  footer {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 1080px) {
+  .pageContainer {
+    padding: 20px 60px;
+  }
+}
+
+@media (max-width: 880px) {
+  .pageContainer {
+    padding: 15px 40px;
+  }
+
+  section,
+  footer {
+    padding: 2rem 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .pageContainer {
+    padding: 0px 40px;
+  }
+}
+
+@media (max-width: 580px) {
+  .pageContainer {
+    padding: 0px 1.75rem;
+  }
+
+  section,
+  footer {
+    padding: 2rem 0 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  section,
+  footer {
+    padding: 2rem 0 3rem;
+  }
 }
