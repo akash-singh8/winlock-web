@@ -1,4 +1,6 @@
+import Link from "next/link";
 import Image from "next/image";
+
 import styles from "./page.module.scss";
 import windows from "@/assets/faq/windows.svg";
 
@@ -10,10 +12,12 @@ const page = () => {
         <p>Free and built on open source.</p>
       </div>
 
-      <button className={styles.mainDownload}>
-        <Image src={windows} alt="Windows" />
-        <p>Download for Windows</p>
-      </button>
+      <Link href={process.env.NEXT_PUBLIC_DOWNLOAD_LINK!}>
+        <button className={styles.mainDownload}>
+          <Image src={windows} alt="Windows" />
+          <p>Download for Windows</p>
+        </button>
+      </Link>
 
       <p>Requirements: Windlows 11/10 (32-bit/64-bit)</p>
 

@@ -29,7 +29,9 @@ export default function Home() {
           </div>
 
           <div className={styles.action}>
-            <button>Download now</button>
+            <Link href={process.env.NEXT_PUBLIC_DOWNLOAD_LINK!}>
+              <button>Download now</button>
+            </Link>
             <Link href="/download">
               <button>Learn more</button>
             </Link>
@@ -92,7 +94,9 @@ export default function Home() {
         <div className={styles.footerDownload}>
           <p>Ready to protect your files?</p>
           <div className={styles.action}>
-            <button>Download now</button>
+            <Link href={process.env.NEXT_PUBLIC_DOWNLOAD_LINK!}>
+              <button>Download now</button>
+            </Link>
           </div>
         </div>
       </section>

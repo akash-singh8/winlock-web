@@ -14,7 +14,7 @@ const Footer = () => {
         <p>&copy; 2025 Winlock. All rights reserved</p>
 
         <div className={styles.socials}>
-          <a href="https://github.com/akash-singh8/winlock-web" target="_blank">
+          <a href="https://github.com/akash-singh8/winlock" target="_blank">
             <Image src={github} alt="Github" />
           </a>
           <a href="https://x.com/dev_skyi" target="_blank">

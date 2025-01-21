@@ -132,7 +132,7 @@ const Card = ({
 }: CartParams) => {
   const handleAction = () => {
     if (title === "Free") {
-      console.log("Downloading winlock...");
+      window.location.href = process.env.NEXT_PUBLIC_DOWNLOAD_LINK!;
       return;
     }
 
