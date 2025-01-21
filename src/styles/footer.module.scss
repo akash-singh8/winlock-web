@@ -4,7 +4,12 @@
 
 .details {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+
+  p {
+    margin-top: -2px;
+  }
 }
 
 .socials {
@@ -26,10 +31,34 @@
 .links {
   display: flex;
   gap: 1.2rem;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   justify-content: flex-end;
 
   a:hover {
     text-decoration: underline;
+  }
+}
+
+@media (max-width: 580px) {
+  .footer {
+    font-size: 14px;
+  }
+
+  .socials {
+    gap: 0.75rem;
+
+    img {
+      width: 18px;
+    }
+  }
+
+  .links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 440px) {
+  .details p {
+    width: 116px;
   }
 }
