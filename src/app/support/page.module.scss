@@ -1,7 +1,14 @@
 .poster {
-  padding: 2rem 0 1rem;
+  border-radius: var(--borderRadius);
+  overflow: hidden;
+  margin: 2rem auto 1rem;
+  max-width: 960px;
   width: 100%;
-  height: auto;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .faqs,
@@ -80,4 +87,24 @@
   transform: rotateZ(90deg);
   margin: 0 0.75rem 0 auto;
   transition: all 0.2s ease-out;
+}
+
+@media (max-width: 580px) {
+  .poster {
+    margin: 3rem 0 1rem;
+
+    img {
+      transform: scale(1.25);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .morehelp h2 {
+    font-size: 26px !important;
+  }
+
+  .poster img {
+    transform: scale(1.4);
+  }
 }

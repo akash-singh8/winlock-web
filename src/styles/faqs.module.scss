@@ -65,3 +65,58 @@
   line-height: 24px;
   padding-right: 1rem;
 }
+
+/* Responsive Adjustments */
+@media (max-width: 1080px) {
+  .faqs h2 {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 980px) {
+  .faqs h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 880px) {
+  .faqs h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 680px) {
+  .faqs h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faqs h2 {
+    font-size: 26px !important;
+  }
+}
+
+@media (max-width: 740px) {
+  .card.active {
+    height: 138px;
+  }
+}
+
+@media (max-width: 540px) {
+  .card.active {
+    height: 162px;
+  }
+}
+
+@media (max-width: 420px) {
+  .card.active {
+    height: 186px;
+  }
+}
+
+@media (max-width: 370px) {
+  .card.active {
+    height: fit-content;
+  }
+}

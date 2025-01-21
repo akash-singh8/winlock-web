@@ -14,7 +14,9 @@ import arrow from "@/assets/faq/uparrow.svg";
 const Support = () => {
   return (
     <>
-      <Image src={poster} alt="We're here to help" className={styles.poster} />
+      <div className={styles.poster}>
+        <Image src={poster} alt="We're here to help" />
+      </div>
 
       <div className={styles.faqs}>
         <FAQs additional={true} />
