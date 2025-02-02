@@ -36,6 +36,12 @@
   button:active {
     box-shadow: none;
   }
+
+  button:disabled {
+    box-shadow: none;
+    cursor: progress;
+    opacity: 0.6;
+  }
 }
 
 /* Responsive Adjustments */
