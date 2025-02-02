@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import getDb from "@/libs/mongodb";
 import dns from "dns/promises";
+import sendEmail from "@/libs/sendEmail";
 
 function isValidEmailSyntax(email: string): boolean {
   // A simple regex to validate basic email format.
@@ -55,6 +56,11 @@ export async function POST(request: NextRequest) {
         { message: "Subscription failed, please try again." },
         { status: 500 }
       );
+    }
+
+    const isMailSent = await sendEmail(email, false);
+    if (!isMailSent) {
+      console.error("Unable to send email on subscription!!");
     }
 
     return NextResponse.json({
