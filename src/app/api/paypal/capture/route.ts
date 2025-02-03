@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import getPayPalAccessToken from "@/libs/paypal";
 import createActivationKey from "@/libs/createActivationKey";
+import sendEmail from "@/libs/sendEmail";
 
 export async function POST(request: Request) {
   try {
@@ -42,9 +43,22 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: send activation key on email address
-    const payerEmail = captureData.payer?.email_address;
-    console.log("Sending email to", email || payerEmail);
+    const payerEmail = email || captureData.payer?.email_address;
+    if (payerEmail) {
+      const isMailSent = await sendEmail(
+        payerEmail,
+        true,
+        plan,
+        getKey.activationKey
+      );
+
+      if (!isMailSent) {
+        console.error(`Unable to send email on PURCHASE!!`);
+        console.log("OrderID:", orderID);
+        console.log("Email and Plan :", email, plan);
+        console.log("---------------------------------------");
+      }
+    }
 
     return NextResponse.json({
       success: true,

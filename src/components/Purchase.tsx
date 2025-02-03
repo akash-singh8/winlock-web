@@ -34,6 +34,10 @@ const Purchase = ({ plan, price, onClose, popupRef }: PurchaseParams) => {
     if (error) toast.error(error);
   }, [error]);
 
+  useEffect(() => {
+    localStorage.setItem("email", email);
+  }, [email]);
+
   const copyActivationKey = () => {
     navigator.clipboard.writeText(activationKey).then(
       () => {
@@ -125,7 +129,7 @@ const Purchase = ({ plan, price, onClose, popupRef }: PurchaseParams) => {
                         body: JSON.stringify({
                           orderID: data.orderID,
                           plan,
-                          email,
+                          email: localStorage.getItem("email"),
                         }),
                       });
                       const result = await res.json();
@@ -137,6 +141,7 @@ const Purchase = ({ plan, price, onClose, popupRef }: PurchaseParams) => {
                         "Thank You for Your Purchase! Please copy your Activation Key."
                       );
                       setActivationKey(result.activationKey);
+                      localStorage.removeItem("email");
                     } catch (err: any) {
                       setError(err.message || "An unknown error occurred");
                     }
