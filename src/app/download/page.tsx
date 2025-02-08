@@ -34,7 +34,7 @@ const page = () => {
 
         <div>
           <p>Latest Version</p>
-          <p>Version 1.0.0</p>
+          <p>Version v1.1.2</p>
         </div>
       </div>
 
