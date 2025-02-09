@@ -5,7 +5,7 @@ const Privacy = () => {
     <section className={styles.container}>
       <h1>Privacy Policy</h1>
       <p>
-        <strong>Last Updated: January 12, 2025</strong>
+        <strong>Last Updated: February 10, 2025</strong>
       </p>
 
       <h2>1. Introduction</h2>
@@ -78,7 +78,10 @@ const Privacy = () => {
         contact us at the email address below.
       </p>
 
-      <h2>10. Changes to This Privacy Policy</h2>
+      <h2>10. Refund and Cancellation Policy</h2>
+      <p>We do not support any refunds or cancellations.</p>
+
+      <h2>11. Changes to This Privacy Policy</h2>
       <p>
         We reserve the right to update or modify this Privacy Policy at any
         time. When we make changes, we will update the &quot;Last Updated&quot;
@@ -87,7 +90,7 @@ const Privacy = () => {
         agreement to abide by the updated policy.
       </p>
 
-      <h2>11. Contact Us</h2>
+      <h2>12. Contact Us</h2>
       <p>
         If you have any questions or comments about this Privacy Policy, please
         contact us at:
@@ -95,7 +98,7 @@ const Privacy = () => {
       <p>
         <a href="mailto:developer.akash8@gmail.com">
           developer.akash8@gmail.com
-        </a>{" "}
+        </a>
       </p>
     </section>
   );
