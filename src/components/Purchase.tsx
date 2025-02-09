@@ -11,7 +11,7 @@ import cross from "@/assets/svgs/cross.svg";
 
 type PurchaseParams = {
   plan: "Premium" | "Professional";
-  price: 24 | 98;
+  price: string;
   onClose: () => void;
   popupRef: RefObject<HTMLDivElement> | undefined;
 };
@@ -77,7 +77,7 @@ const Purchase = ({ plan, price, onClose, popupRef }: PurchaseParams) => {
               </div>
             </div>
 
-            <p>${price}</p>
+            <p>{price}</p>
           </div>
           {activationKey ? (
             <div className={styles.activationKey}>

@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { ToastContainer } from "react-toastify";
 
@@ -12,6 +12,45 @@ const Pricing = () => {
   const popupRef = useRef(null);
   const [isPremium, setIsPremium] = useState(true);
   const [isPurchaseOpen, setIsPurchaseOpen] = useState(false);
+  const [currency, setCurrency] = useState("USD");
+  const [exchangeRate, setExchangeRate] = useState(1);
+
+  useEffect(() => {
+    const fetchUserLocationAndExchangeRate = async () => {
+      try {
+        const locationResponse = await fetch("https://ipapi.co/json/");
+        const locationData = await locationResponse.json();
+        const userCountry = locationData.country_code;
+
+        if (userCountry === "IN") {
+          const exchangeRateResponse = await fetch("/api/exchangeRate");
+
+          if (exchangeRateResponse.ok) {
+            const exchangeRateData = await exchangeRateResponse.json();
+            const usdToInrRate = exchangeRateData.INR;
+            setCurrency("INR");
+            setExchangeRate(usdToInrRate);
+          } else {
+            console.error("Error fetching exchange rate!!");
+          }
+        } else {
+          setCurrency("USD");
+          setExchangeRate(1);
+        }
+      } catch (error) {
+        console.error("Error fetching user location or exchange rate:", error);
+      }
+    };
+
+    fetchUserLocationAndExchangeRate();
+  }, []);
+
+  // Function to get price based on currency and exchange rate
+  const getPrice = (price: number) => {
+    return currency === "USD"
+      ? `$${price}`
+      : `₹${(price * exchangeRate).toFixed(0)}`;
+  };
 
   const handlePurchasePopup = (plan?: string) => {
     if (!isPurchaseOpen) {
@@ -43,12 +82,13 @@ const Pricing = () => {
       <PayPalScriptProvider
         options={{
           clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID!,
+          currency: currency,
         }}
       >
         {isPurchaseOpen && (
           <Purchase
             plan={isPremium ? "Premium" : "Professional"}
-            price={isPremium ? 24 : 98}
+            price={isPremium ? getPrice(24) : getPrice(98)}
             onClose={handlePurchasePopup}
             popupRef={popupRef}
           />
@@ -71,7 +111,7 @@ const Pricing = () => {
       <div className={styles.plans}>
         <Card
           title="Free"
-          price={0}
+          price={currency === "USD" ? "$0" : "₹0"}
           type="lifetime"
           action="Get started with Free"
           features={[
@@ -83,7 +123,7 @@ const Pricing = () => {
         />
         <Card
           title="Premium"
-          price={24}
+          price={getPrice(24)}
           type="yearly"
           action="Get Premium"
           features={[
@@ -96,7 +136,7 @@ const Pricing = () => {
         />
         <Card
           title="Professional"
-          price={98}
+          price={getPrice(98)}
           type="lifetime"
           action="Get Professional"
           features={[
@@ -115,7 +155,7 @@ const Pricing = () => {
 
 type CartParams = {
   title: string;
-  price: number;
+  price: string;
   type: string;
   action: string;
   features: string[];
@@ -144,7 +184,7 @@ const Card = ({
       <div>
         <p className={styles.title}>{title}</p>
         <p className={styles.price}>
-          <span>${price}</span> / {type}
+          <span>{price}</span> / {type}
         </p>
       </div>
 
