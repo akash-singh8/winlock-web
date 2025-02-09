@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import { ToastContainer } from "react-toastify";
 
 import styles from "@/styles/pricing.module.scss";
@@ -79,21 +78,14 @@ const Pricing = () => {
     <section className={styles.pricing}>
       <h2>Choose the Plan That&apos;s Right for You</h2>
 
-      <PayPalScriptProvider
-        options={{
-          clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID!,
-          currency: currency,
-        }}
-      >
-        {isPurchaseOpen && (
-          <Purchase
-            plan={isPremium ? "Premium" : "Professional"}
-            price={isPremium ? getPrice(24) : getPrice(98)}
-            onClose={handlePurchasePopup}
-            popupRef={popupRef}
-          />
-        )}
-      </PayPalScriptProvider>
+      {isPurchaseOpen && (
+        <Purchase
+          plan={isPremium ? "Premium" : "Professional"}
+          price={isPremium ? getPrice(24) : getPrice(98)}
+          onClose={handlePurchasePopup}
+          popupRef={popupRef}
+        />
+      )}
 
       <ToastContainer
         position="top-center"

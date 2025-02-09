@@ -1,10 +1,6 @@
 import Image from "next/image";
 import { RefObject, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import {
-  PayPalButtons,
-  PayPalButtonsComponentProps,
-} from "@paypal/react-paypal-js";
 
 import styles from "@/styles/purchase.module.scss";
 import cross from "@/assets/svgs/cross.svg";
@@ -17,18 +13,14 @@ type PurchaseParams = {
 };
 
 const Purchase = ({ plan, price, onClose, popupRef }: PurchaseParams) => {
-  const buttonStyles: PayPalButtonsComponentProps["style"] = {
-    borderRadius: 12,
-    label: "pay",
-    color: "silver",
-  };
-
   const product = `Winlock ${plan === "Premium" ? "Premium" : "Pro"}`;
   const access = plan === "Premium" ? "1 year access" : "Lifetime access";
 
   const [email, setEmail] = useState("");
-  const [error, setError] = useState<string | null>(null);
-  const [activationKey, setActivationKey] = useState("");
+  // const [error, setError] = useState<string | null>(null);
+  // const [activationKey, setActivationKey] = useState("");
+  const error = null;
+  const activationKey = "";
 
   useEffect(() => {
     if (error) toast.error(error);
@@ -100,56 +92,7 @@ const Purchase = ({ plan, price, onClose, popupRef }: PurchaseParams) => {
               </div>
 
               <div className={styles.paymentButtons}>
-                <PayPalButtons
-                  style={buttonStyles}
-                  createOrder={async () => {
-                    try {
-                      const res = await fetch("/api/paypal/order", {
-                        method: "POST",
-                        headers: {
-                          "Content-Type": "application/json",
-                        },
-                        body: JSON.stringify({ plan }),
-                      });
-                      const data = await res.json();
-                      if (!res.ok)
-                        throw new Error(data.error || "Failed to create order");
-
-                      return data.orderID;
-                    } catch (err: any) {
-                      setError(err.message || err);
-                      throw err;
-                    }
-                  }}
-                  onApprove={async (data) => {
-                    try {
-                      const res = await fetch("/api/paypal/capture", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                          orderID: data.orderID,
-                          plan,
-                          email: localStorage.getItem("email"),
-                        }),
-                      });
-                      const result = await res.json();
-                      if (!res.ok || !result.success) {
-                        throw new Error(result.error || "Capture failed");
-                      }
-
-                      toast.success(
-                        "Thank You for Your Purchase! Please copy your Activation Key."
-                      );
-                      setActivationKey(result.activationKey);
-                      localStorage.removeItem("email");
-                    } catch (err: any) {
-                      setError(err.message || "An unknown error occurred");
-                    }
-                  }}
-                  onError={() => {
-                    setError("PayPal button error. Please try again.");
-                  }}
-                />
+                <button>Buy Now: In Progress..</button>
               </div>
             </>
           )}
