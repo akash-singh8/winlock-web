@@ -33,3 +33,20 @@
     }
   }
 }
+
+.addressHeading {
+  margin-top: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.address {
+  font-style: normal;
+  margin-top: 0.5rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-left: 4px solid var(--lightBlue);
+  border-top-right-radius: var(--borderRadius);
+  border-bottom-right-radius: var(--borderRadius);
+  line-height: 1.4;
+}

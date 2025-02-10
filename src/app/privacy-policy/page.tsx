@@ -100,6 +100,11 @@ const Privacy = () => {
           developer.akash8@gmail.com
         </a>
       </p>
+
+      <h2 className={styles.addressHeading}>Operational Address</h2>
+      <address className={styles.address}>
+        Room-721B, Block-1, VIT Bhopal, Ashta, Bhopal, Madhya Pradesh 466114
+      </address>
     </section>
   );
 };
