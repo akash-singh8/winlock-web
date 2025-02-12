@@ -96,9 +96,6 @@ const Purchase = ({
       amount: data.amount,
       currency: data.currency,
       order_id: data.id,
-      name: "Winlock",
-      description: "Payment for your product or service",
-      image: "/logo.svg",
       handler: handlePaymentSuccess,
       modal: {
         ondismiss: function () {
