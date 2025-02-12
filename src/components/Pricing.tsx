@@ -17,9 +17,13 @@ const Pricing = () => {
   useEffect(() => {
     const fetchUserLocationAndExchangeRate = async () => {
       try {
-        const locationResponse = await fetch("https://ipapi.co/json/");
-        const locationData = await locationResponse.json();
-        const userCountry = locationData.country_code;
+        let userCountry = localStorage.getItem("userCountry");
+        if (!userCountry) {
+          const locationResponse = await fetch("https://ipapi.co/json/");
+          const locationData = await locationResponse.json();
+          userCountry = locationData.country_code;
+          localStorage.setItem("userCountry", userCountry!);
+        }
 
         if (userCountry === "IN") {
           const exchangeRateResponse = await fetch("/api/exchangeRate");
