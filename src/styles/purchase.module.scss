@@ -113,14 +113,14 @@
 }
 
 .emailInput input {
-  width: 70%;
+  width: 100%;
   padding: 0.75rem 1.25rem;
   font-size: 15px;
   font-family: var(--font-manrope), sans-serif;
   background-color: transparent;
   font-weight: 500;
   text-align: center;
-  border: 2px solid var(--lightGray);
+  border: 1px solid var(--lightGray);
   border-radius: var(--borderRadius);
   outline: none;
 }
@@ -129,8 +129,50 @@
   border-color: var(--darkBlue);
 }
 
-.paymentButtons {
-  padding: 0 2rem;
+.paymentButton {
+  div {
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    user-select: none;
+    gap: 5px;
+  }
+
+  p {
+    color: gray;
+    font-weight: 600;
+    font-size: 14px;
+    font-style: italic;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 80%;
+    margin: auto;
+    font-size: 1rem;
+    box-shadow: none;
+    transform: none;
+    padding: 0.75rem;
+    img {
+      transform: rotateZ(90deg);
+      transition: all 0.25s ease-out;
+      filter: invert(1);
+    }
+  }
+
+  button:hover img {
+    transform: rotateZ(90deg) translateY(-4px);
+  }
+
+  button:disabled {
+    cursor: progress;
+    opacity: 0.6;
+  }
 }
 
 .activationKey {
@@ -215,6 +257,19 @@
       font-size: 14px;
     }
   }
+
+  .paymentButton {
+    padding: 0 1rem;
+    button {
+      padding: 0.6rem;
+      font-size: 15px;
+      width: 100%;
+
+      img {
+        width: 10px;
+      }
+    }
+  }
 }
 
 @media (max-width: 440px) {
@@ -244,9 +299,5 @@
     input {
       width: 90%;
     }
-  }
-
-  .paymentButtons {
-    padding: 0 1.5rem;
   }
 }

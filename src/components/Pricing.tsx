@@ -82,6 +82,7 @@ const Pricing = () => {
         <Purchase
           plan={isPremium ? "Premium" : "Professional"}
           price={isPremium ? getPrice(24) : getPrice(98)}
+          currency={currency}
           onClose={handlePurchasePopup}
           popupRef={popupRef}
         />

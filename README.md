@@ -20,7 +20,7 @@ Winlock Web is a **Next.js 15** web application that serves as the portal for do
 ## Features
 
 - **Download Winlock:** Direct link for users to download the Winlock desktop application.
-- **Purchase Activation Keys:** Seamless integration with PayPal to handle transactions for Premium and Pro plans.
+- **Purchase Activation Keys:** Seamless integration with Razorpay to handle transactions for Premium and Pro plans.
 - **Secure Activation:** Uses JWT for creating and verifying activation keys.
 - **Database Integration:** Connects to MongoDB for managing user and transaction data.
 - **Email Notifications:** Configured to send emails via Google for key confirmations and updates.
@@ -72,10 +72,9 @@ GOOGLE_EMAIL="xyz@example.com"
 GOOGLE_APP_PASS="email app password"
 
 # Payment related variables - not compulsory
-PAYPAL_CLIENT_ID="paypal client id"
-PAYPAL_CLIENT_SECRET="paypal client secret"
-PAYPAL_BASE_URL="https://api-m.sandbox.paypal.com"
-NEXT_PUBLIC_PAYPAL_CLIENT_ID="paypal client id"
+RAZORPAY_KEY="abc"
+RAZORPAY_SECRET="xyz"
+NEXT_PUBLIC_RAZORPAY_KEY="abc"
 ```
 
 _Make sure to replace the placeholder values with your actual credentials and configuration details._

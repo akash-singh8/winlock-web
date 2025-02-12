@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
@@ -25,6 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={manrope.variable}>
+        <Script
+          src="https://checkout.razorpay.com/v1/checkout.js"
+          strategy="beforeInteractive"
+        />
         <Navbar />
         <div className="pageContainer">
           {children}
